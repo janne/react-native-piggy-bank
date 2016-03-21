@@ -32,13 +32,15 @@ var styles = StyleSheet.create({
     toolbarButton: {
         width: 60,
         color: '#fff',
-        textAlign: 'center'
+        textAlign: 'center',
+        fontFamily: 'Avenir Next',
     },
     toolbarTitle: {
         color: '#fff',
         textAlign: 'center',
         fontWeight: 'bold',
-        flex: 1
+        flex: 1,
+        fontFamily: 'Avenir Next',
     }
 });
 
