@@ -1,7 +1,3 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- */
 'use strict';
 import React, {
   AppRegistry,
@@ -12,17 +8,19 @@ import React, {
 } from 'react-native';
 import ChildSelector from './ChildSelector';
 import Toolbar from './Toolbar';
+import Transactions from './Transactions';
 
-class PiggyBank extends Component {
+var PiggyBank = React.createClass({
   render() {
     return (
       <View style={styles.container}>
         <Toolbar />
         <ChildSelector />
+        <Transactions />
       </View>
     );
   }
-}
+});
 
 const styles = StyleSheet.create({
   container: {
