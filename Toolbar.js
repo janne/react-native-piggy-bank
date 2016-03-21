@@ -6,15 +6,16 @@ var {
   Text,
   View,
 } = React;
+var Button = require('./Button');
   
 var Toolbar = React.createClass({
   render() {
     return (
       <View>
         <View style={styles.toolbar}>
-          <Text style={styles.toolbarButton}>Settings</Text>
+          <Button onPress={() => console.log('Settings')} style={styles.toolbarButton} label="Settings" />
           <Text style={styles.toolbarTitle}>Piggy Bank</Text>
-          <Text style={styles.toolbarButton}>Add</Text>
+          <Button onPress={() => console.log('Add')} style={styles.toolbarButton} label="Add" />
         </View>
       </View>
     );
