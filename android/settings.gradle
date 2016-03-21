@@ -1,0 +1,3 @@
+rootProject.name = 'PiggyBank'
+
+include ':app'
