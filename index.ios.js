@@ -8,7 +8,7 @@ import React, {
 } from 'react-native';
 import ChildSelector from './ChildSelector';
 import Toolbar from './Toolbar';
-import Transactions from './Transactions';
+import TransactionList from './TransactionList';
 
 var PiggyBank = React.createClass({
   render() {
@@ -16,7 +16,7 @@ var PiggyBank = React.createClass({
       <View style={styles.container}>
         <Toolbar />
         <ChildSelector />
-        <Transactions />
+        <TransactionList />
       </View>
     );
   }

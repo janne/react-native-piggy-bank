@@ -5,7 +5,9 @@ import React, {
   View,
 } from 'react-native';
 
-var Transactions = React.createClass({
+import TransactionItem from './TransactionItem';
+
+var TransactionList = React.createClass({
   getInitialState() {
     var ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
     return {
@@ -16,10 +18,10 @@ var Transactions = React.createClass({
     return (
       <ListView
         dataSource={this.state.dataSource}
-        renderRow={(rowData) => <Text>{rowData}</Text>}
+        renderRow={(rowData) => <TransactionItem data={rowData} />}
       />
     );
   }
 });
 
-module.exports = Transactions;
+module.exports = TransactionList;
