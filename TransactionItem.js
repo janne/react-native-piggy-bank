@@ -5,10 +5,13 @@ import React, {
   View,
 } from 'react-native';
 
+import Avatar from './Avatar';
+
 var TransactionItem = React.createClass({
   render() {
     return (
       <View style={styles.container}>
+        <Avatar name="Vilgot" size="small" />
         <Text style={styles.description}>foo</Text>
         <Text style={styles.amount}>10 SEK</Text>
       </View>
