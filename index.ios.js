@@ -11,11 +11,13 @@ import React, {
   View
 } from 'react-native';
 import ChildSelector from './ChildSelector';
+import Toolbar from './Toolbar';
 
 class PiggyBank extends Component {
   render() {
     return (
       <View style={styles.container}>
+        <Toolbar />
         <ChildSelector />
       </View>
     );
@@ -24,7 +26,6 @@ class PiggyBank extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    marginTop: 20,
   },
 });
 
