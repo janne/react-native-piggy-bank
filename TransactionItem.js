@@ -9,11 +9,14 @@ import Avatar from './Avatar';
 
 var TransactionItem = React.createClass({
   render() {
+    let amount = this.props.amount;
+    let currencyStyle = amount > 0 ? styles.positive : styles.negative;
     return (
       <View style={styles.container}>
         <Avatar name="vilgot" size="small" />
-        <Text style={styles.description}>foo</Text>
-        <Text style={styles.amount}>10 SEK</Text>
+        <Text style={styles.description}>{this.props.description}</Text>
+        <Text style={currencyStyle}>{amount}</Text>
+        <Text style={currencyStyle}>{this.props.currency}</Text>
       </View>
     );
   }
@@ -32,11 +35,18 @@ var styles = StyleSheet.create({
     fontFamily: 'Avenir Next',
     padding: 4,
   },
-  amount: {
+  positive: {
     textAlign: 'right',
     fontSize: 16,
     fontFamily: 'Avenir Next',
     padding: 4,
+  },
+  negative: {
+    textAlign: 'right',
+    fontSize: 16,
+    fontFamily: 'Avenir Next',
+    padding: 4,
+    color: '#f00'
   }
 });
 
