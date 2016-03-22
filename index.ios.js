@@ -25,9 +25,9 @@ var PiggyBank = React.createClass({
           },
         ],
         transactions: [
-          { description: 'From grandma', amount: '370', currency: 'SEK', children: ["vilgot"] },
-          { description: 'Easter gift', amount: '20', currency: 'USD', children: ["vilgot", "elze"] },
-          { description: 'Toys', amount: '-20', currency: 'SEK', children: ["elze"] },
+          { description: 'From grandma', amount: 370, currency: 'kr', children: ["Vilgot"] },
+          { description: 'Easter gift', amount: 100, currency: 'kr', children: ["Vilgot", "Elze"] },
+          { description: 'Toys', amount: -20, currency: 'kr', children: ["Elze"] },
         ]
       };
     return (

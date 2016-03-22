@@ -17,11 +17,15 @@ var ChildSelector = React.createClass({
     let page = Math.round(e.nativeEvent.contentOffset.x/400);
     this.setState({ page: page });
   },
+  calcSum(name) {
+    let amounts = this.props.transactions.filter(t => t.children.indexOf(name) > -1).map(c => c.amount);
+    return amounts.reduce((prev, n) => prev + n);
+  },
   render() {
     return (
       <View style={styles.container}>
         <ScrollView ref="scrollView" style={styles.scrollView} horizontal={true} pagingEnabled={true} showsHorizontalScrollIndicator={false} onScroll={this.handleScroll} scrollEventThrottle={0.2}>
-          { this.props.children.map(child => <Child key={child.name} {...child} />) }
+          { this.props.children.map(child => <Child key={child.name} sum={this.calcSum(child.name)} {...child} />) }
         </ScrollView>
         <PageControl numberOfPages={this.props.children.length} currentPage={this.state.page} hidesForSinglePage={true} onPageIndicatorPress={this.pressIndicator} />
       </View>

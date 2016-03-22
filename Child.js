@@ -7,7 +7,7 @@ const Child = React.createClass({
       <View style={styles.page}>
       <Text style={styles.title}>{this.props.name}</Text>
       <Avatar uri={this.props.avatar_uri} name={this.props.name} size="large" />
-      <Text style={styles.amount}>345 SEK</Text>
+      <Text style={styles.amount}>{this.props.sum} kr</Text>
       </View>
     );
   }
