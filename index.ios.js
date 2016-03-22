@@ -7,21 +7,22 @@ import React, {
 import ChildSelector from './ChildSelector';
 import Toolbar from './Toolbar';
 import TransactionList from './TransactionList';
+const data = require('./fixtures/data.json');
 
 var PiggyBank = React.createClass({
-  data: require('./fixtures/data.json'),
+  data: data,
   getInitialState() {
-    return { active: "Vilgot" }
+    return { currentChild: data.children[0].name }
   },
   changePage(page) {
-    this.setState({active: this.data.children[page].name});
+    this.setState({currentChild: this.data.children[page].name});
   },
   render() {
     return (
       <View>
         <Toolbar />
         <ChildSelector onPageChange={this.changePage} {...this.data} />
-        <TransactionList active={this.state.active} {...this.data} />
+        <TransactionList currentChild={this.state.currentChild} {...this.data} />
       </View>
     );
   }
