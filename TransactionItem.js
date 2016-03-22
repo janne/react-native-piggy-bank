@@ -8,12 +8,15 @@ import React, {
 import Avatar from './Avatar';
 
 var TransactionItem = React.createClass({
+  uri(name) {
+    return this.props.allChildren.find(c => c.name == name).avatar_uri;
+  },
   render() {
     let amount = this.props.amount;
     let currencyStyle = amount > 0 ? styles.positive : styles.negative;
     return (
       <View style={styles.container}>
-        <Avatar name="vilgot" size="small" />
+        {this.props.children.map(c => <Avatar key={c} uri={this.uri(c)} name={c} size="small" />)}
         <Text style={styles.description}>{this.props.description}</Text>
         <Text style={currencyStyle}>{amount}</Text>
         <Text style={currencyStyle}>{this.props.currency}</Text>

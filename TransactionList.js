@@ -14,7 +14,7 @@ var TransactionList = React.createClass({
     return (
       <ListView
         dataSource={this.dataSource.cloneWithRows(transactions)}
-        renderRow={(rowData) => <TransactionItem {...rowData} />}
+        renderRow={(rowData) => <TransactionItem allChildren={this.props.children} {...rowData} />}
       />
     );
   }
