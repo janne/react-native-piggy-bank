@@ -4,14 +4,8 @@ import Child from './Child';
 import PageControl from 'react-native-page-control';
 
 var ChildSelector = React.createClass({
-  getInitialState() {
-    return {
-      page: 0
-    }
-  },
   gotoPage(page) {
-    if (this.state.page != page) {
-      this.setState({ page: page });
+    if (this.props.currentChild != page) {
       this.props.onPageChange(page);
     }
   },
@@ -32,7 +26,7 @@ var ChildSelector = React.createClass({
         <ScrollView ref="scrollView" style={styles.scrollView} horizontal={true} pagingEnabled={true} showsHorizontalScrollIndicator={false} onScroll={this.handleScroll} scrollEventThrottle={0.2}>
           { this.props.children.map(child => <Child key={child.name} sum={this.calcSum(child.name)} {...child} />) }
         </ScrollView>
-        <PageControl numberOfPages={this.props.children.length} currentPage={this.state.page} hidesForSinglePage={true} onPageIndicatorPress={this.pressIndicator} />
+        <PageControl numberOfPages={this.props.children.length} currentPage={this.props.currentChild} hidesForSinglePage={true} onPageIndicatorPress={this.pressIndicator} />
       </View>
     );
   }

@@ -12,19 +12,43 @@ const data = require('./fixtures/data.json');
 var PiggyBank = React.createClass({
   data: data,
   getInitialState() {
-    return { currentChild: data.children[0].name }
+    return {
+      view: "list",
+      currentChild: 0,
+    }
+  },
+  changeView(view) {
+    this.setState({view});
   },
   changePage(page) {
-    this.setState({currentChild: this.data.children[page].name});
+    this.setState({currentChild: page});
+  },
+  renderView() {
+    switch(this.state.view) {
+      case 'list':
+        return (
+          <View>
+            <Toolbar onChangeView={this.changeView} />
+            <ChildSelector currentChild={this.state.currentChild} onPageChange={this.changePage} {...this.data} />
+            <TransactionList currentChild={this.state.currentChild} {...this.data} />
+          </View>
+        );
+      case 'add':
+        return (
+          <View>
+            <Toolbar onChangeView={this.changeView} />
+          </View>
+        );
+      case 'settings':
+        return (
+          <View>
+            <Toolbar onChangeView={this.changeView} />
+          </View>
+        );
+    }
   },
   render() {
-    return (
-      <View>
-        <Toolbar />
-        <ChildSelector onPageChange={this.changePage} {...this.data} />
-        <TransactionList currentChild={this.state.currentChild} {...this.data} />
-      </View>
-    );
+    return this.renderView()
   }
 });
 

@@ -10,7 +10,8 @@ import TransactionItem from './TransactionItem';
 var TransactionList = React.createClass({
   dataSource: new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2}),
   render() {
-    let transactions = this.props.transactions.filter(t => t.children.indexOf(this.props.currentChild) > -1)
+    let name = this.props.children[this.props.currentChild].name;
+    let transactions = this.props.transactions.filter(t => t.children.indexOf(name) > -1)
     return (
       <ListView
         dataSource={this.dataSource.cloneWithRows(transactions)}

@@ -13,9 +13,9 @@ var Toolbar = React.createClass({
     return (
       <View>
         <View style={styles.toolbar}>
-          <Button onPress={() => console.log('Settings')} style={styles.toolbarButton} label="Settings" />
+          <Button onPress={() => this.props.onChangeView("settings")} style={styles.toolbarButton} label="Settings" />
           <Text style={styles.toolbarTitle}>Piggy Bank</Text>
-          <Button onPress={() => console.log('Add')} style={styles.toolbarButton} label="Add" />
+          <Button onPress={() => this.props.onChangeView("add")} style={styles.toolbarButton} label="Add" />
         </View>
       </View>
     );
