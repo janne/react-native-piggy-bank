@@ -10,7 +10,7 @@ var Button = require('./Button');
   
 var Toolbar = React.createClass({
   button(i) {
-    return <Button onPress={() => this.props.onChangeView(this.props.buttons[i].view)} style={styles.toolbarButton} label={this.props.buttons[i].label} />
+    return <Button onPress={() => this.props.onChangeView(this.props.buttons[i].view)} style={[styles.toolbarButton, i == 0 ? styles.left : styles.right]} label={this.props.buttons[i].label} />
   },
   render() {
     return (
@@ -27,19 +27,26 @@ var Toolbar = React.createClass({
   
 var styles = StyleSheet.create({
     toolbar: {
-        backgroundColor: '#81c04d',
         paddingTop: 30,
         paddingBottom: 10,
         flexDirection: 'row'
     },
     toolbarButton: {
         width: 60,
-        color: '#fff',
+        fontSize: 16,
         textAlign: 'center',
         fontFamily: 'Avenir Next',
     },
+    left: {
+        color: '#c3d',
+        marginLeft: 10,
+    },
+    right: {
+        color: '#3e3',
+        marginRight: 10,
+    },
     toolbarTitle: {
-        color: '#fff',
+        fontSize: 16,
         textAlign: 'center',
         fontWeight: 'bold',
         flex: 1,
