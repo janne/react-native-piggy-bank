@@ -28,9 +28,20 @@ var PiggyBank = React.createClass({
       },
     ],
     transactions: [
-      { description: 'From grandma', amount: 370, currency: 'kr', children: ["Vilgot"] },
-      { description: 'Easter gift', amount: 100, currency: 'kr', children: ["Vilgot", "Elze"] },
-      { description: 'Toys', amount: -20, currency: 'kr', children: ["Elze"] },
+      { description: 'From piggybank', amount: 373, currency: 'kr', children: ['Vilgot'] },
+      { description: 'From piggybank', amount: 5, currency: 'kr', children: ['Elze'] },
+      { description: 'From aunt Emilia', amount: 530, currency: 'kr', children: ['Vilgot', 'Elze'] },
+      { description: 'Nerf', amount: -170, currency: 'kr', children: ['Vilgot'] },
+      { description: 'Lego to Theo', amount: 200, currency: 'kr', children: ['Vilgot'] },
+      { description: 'Tooth Fairy', amount: 20, currency: 'kr', children: ['Vilgot'] },
+      { description: 'Turtle', amount: -35, currency: 'kr', children: ['Elze'] },
+      { description: 'Kitty keyring', amount: -49, currency: 'kr', children: ['Elze'] },
+      { description: 'Crown, drawing pad, pearls', amount: -138, currency: 'kr', children: ['Elze'] },
+      { description: 'Easter Gift', amount: 50, currency: 'kr', children: ['Vilgot', 'Elze'] },
+      { description: 'Birthday', amount: 500, currency: 'kr', children: ['Vilgot'] },
+      { description: 'Gift from Severina', amount: 472, currency: 'kr', children: ['Vilgot', 'Elze'] },
+      { description: 'Gift from Povilas', amount: 377, currency: 'kr', children: ['Vilgot', 'Elze'] },
+      { description: 'Candy', amount: -28, currency: 'kr', children: ['Vilgot'] },
     ]
   },
   changePage(page) {
