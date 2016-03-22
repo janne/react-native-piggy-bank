@@ -8,16 +8,12 @@ import React, {
 import TransactionItem from './TransactionItem';
 
 var TransactionList = React.createClass({
-  getInitialState() {
-    var ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
-    return {
-      dataSource: ds.cloneWithRows(this.props.transactions),
-    };
-  },
+  dataSource: new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2}),
   render() {
+    let transactions = this.props.transactions.filter(t => t.children.indexOf(this.props.active) > -1)
     return (
       <ListView
-        dataSource={this.state.dataSource}
+        dataSource={this.dataSource.cloneWithRows(transactions)}
         renderRow={(rowData) => <TransactionItem {...rowData} />}
       />
     );

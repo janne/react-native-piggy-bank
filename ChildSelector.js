@@ -9,13 +9,18 @@ var ChildSelector = React.createClass({
       page: 0
     }
   },
-  pressIndicator(i) {
-    this.refs.scrollView.scrollTo({x: i*400});
-    this.setState({ page: i });
+  gotoPage(page) {
+    if (this.state.page != page) {
+      this.setState({ page: page });
+      this.props.onPageChange(page);
+    }
+  },
+  pressIndicator(page) {
+    this.refs.scrollView.scrollTo({x: page*400});
   },
   handleScroll(e) {
     let page = Math.round(e.nativeEvent.contentOffset.x/400);
-    this.setState({ page: page });
+    this.gotoPage(page);
   },
   calcSum(name) {
     let amounts = this.props.transactions.filter(t => t.children.indexOf(name) > -1).map(c => c.amount);

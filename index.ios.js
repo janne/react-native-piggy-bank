@@ -11,30 +11,37 @@ import Toolbar from './Toolbar';
 import TransactionList from './TransactionList';
 
 var PiggyBank = React.createClass({
-  render() {
-    let data =
+  getInitialState() {
+    return {
+      active: "Vilgot"
+    }
+  },
+  data: {
+    children: [
       {
-        children: [
-          {
-            name: "Vilgot",
-            avatar_uri: "https://www.dropbox.com/s/r11h9vz2t9i7mwk/vilgot.png?dl=1",
-          },
-          {
-            name: "Elze",
-            avatar_uri: "https://www.dropbox.com/s/xbb8vnrof51zzxj/elze.png?dl=1",
-          },
-        ],
-        transactions: [
-          { description: 'From grandma', amount: 370, currency: 'kr', children: ["Vilgot"] },
-          { description: 'Easter gift', amount: 100, currency: 'kr', children: ["Vilgot", "Elze"] },
-          { description: 'Toys', amount: -20, currency: 'kr', children: ["Elze"] },
-        ]
-      };
+        name: "Vilgot",
+        avatar_uri: "https://www.dropbox.com/s/r11h9vz2t9i7mwk/vilgot.png?dl=1",
+      },
+      {
+        name: "Elze",
+        avatar_uri: "https://www.dropbox.com/s/xbb8vnrof51zzxj/elze.png?dl=1",
+      },
+    ],
+    transactions: [
+      { description: 'From grandma', amount: 370, currency: 'kr', children: ["Vilgot"] },
+      { description: 'Easter gift', amount: 100, currency: 'kr', children: ["Vilgot", "Elze"] },
+      { description: 'Toys', amount: -20, currency: 'kr', children: ["Elze"] },
+    ]
+  },
+  changePage(page) {
+    this.setState({active: this.data.children[page].name});
+  },
+  render() {
     return (
       <View style={styles.container}>
         <Toolbar />
-        <ChildSelector {...data} />
-        <TransactionList {...data} />
+        <ChildSelector onPageChange={this.changePage} {...this.data} />
+        <TransactionList active={this.state.active} {...this.data} />
       </View>
     );
   }
