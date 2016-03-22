@@ -5,6 +5,7 @@ import React, {
   View
 } from 'react-native';
 import ChildSelector from './ChildSelector';
+import Create from './Create';
 import Toolbar from './Toolbar';
 import TransactionList from './TransactionList';
 const data = require('./fixtures/data.json');
@@ -29,18 +30,13 @@ var PiggyBank = React.createClass({
         var buttons = [{label: 'Settings', view: 'settings'}, {label: 'Add', view: 'add'}];
         return (
           <View>
-            <Toolbar buttons={buttons} onChangeView={this.changeView} />
+            <Toolbar buttons={buttons} title="Piggy Bank" onChangeView={this.changeView} />
             <ChildSelector currentChild={this.state.currentChild} onPageChange={this.changePage} {...this.data} />
             <TransactionList currentChild={this.state.currentChild} {...this.data} />
           </View>
         );
       case 'add':
-        var buttons = [{label: 'Cancel', view: 'list'}];
-        return (
-          <View>
-            <Toolbar buttons={buttons} title="Make transaction" onChangeView={this.changeView} />
-          </View>
-        );
+        return <Create onChangeView={this.changeView} />
       case 'settings':
         var buttons = [{label: 'Cancel', view: 'list'}, {label: 'Save', view: 'list'}];
         return (
