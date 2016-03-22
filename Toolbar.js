@@ -9,13 +9,16 @@ var {
 var Button = require('./Button');
   
 var Toolbar = React.createClass({
+  button(i) {
+    return <Button onPress={() => this.props.onChangeView(this.props.buttons[i].view)} style={styles.toolbarButton} label={this.props.buttons[i].label} />
+  },
   render() {
     return (
       <View>
         <View style={styles.toolbar}>
-          <Button onPress={() => this.props.onChangeView("settings")} style={styles.toolbarButton} label="Settings" />
-          <Text style={styles.toolbarTitle}>Piggy Bank</Text>
-          <Button onPress={() => this.props.onChangeView("add")} style={styles.toolbarButton} label="Add" />
+          {this.button(0)}
+          <Text style={styles.toolbarTitle}>{this.props.title}</Text>
+          {this.props.buttons.length > 1 ? this.button(1) : false}
         </View>
       </View>
     );

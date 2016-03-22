@@ -26,23 +26,26 @@ var PiggyBank = React.createClass({
   renderView() {
     switch(this.state.view) {
       case 'list':
+        var buttons = [{label: 'Settings', view: 'settings'}, {label: 'Add', view: 'add'}];
         return (
           <View>
-            <Toolbar onChangeView={this.changeView} />
+            <Toolbar buttons={buttons} onChangeView={this.changeView} />
             <ChildSelector currentChild={this.state.currentChild} onPageChange={this.changePage} {...this.data} />
             <TransactionList currentChild={this.state.currentChild} {...this.data} />
           </View>
         );
       case 'add':
+        var buttons = [{label: 'Cancel', view: 'list'}];
         return (
           <View>
-            <Toolbar onChangeView={this.changeView} />
+            <Toolbar buttons={buttons} title="Make transaction" onChangeView={this.changeView} />
           </View>
         );
       case 'settings':
+        var buttons = [{label: 'Cancel', view: 'list'}, {label: 'Save', view: 'list'}];
         return (
           <View>
-            <Toolbar onChangeView={this.changeView} />
+            <Toolbar buttons={buttons} title="Settings" onChangeView={this.changeView} />
           </View>
         );
     }
